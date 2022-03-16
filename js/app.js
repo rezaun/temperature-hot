@@ -15,5 +15,10 @@ const setInnerText = (id,text) =>{
 const displayTemparature = temparature =>{
     setInnerText('city', temparature.name);
     setInnerText('temparature', temparature.main.temp);
-    console.log(temparature);
+    setInnerText('condition', temparature.weather[0].main);
+    //console.log(temparature);
+    //set weather icon
+    const url = `http://openweathermap.org/img/wn/${temparature.weather[0].icon}@2x.png`;
+    const imgIcon = document.getElementById('weather-icon');
+    imgIcon.setAttribute('src', url);
 }
